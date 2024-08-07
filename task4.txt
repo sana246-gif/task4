@@ -1,0 +1,38 @@
+To create a php file which says Hello <your name>, right now the time is <current time>
+
+sudo apt update
+sudo apt install php
+nano hello.php(add the following code)
+<?php
+date_default_timezone_set('Your/Timezone');  // Replace 'Your/Timezone' with your actual timezone, e.g., 'America/New_York'
+$name = "YourName";  // Replace with your actual name
+$current_time = date('Y-m-d H:i:s');
+echo "Hello $name, right now the time is $current_time";
+?>
+save and exit 
+php hello.php (for run the program)
+
+ To Create a rust program which prints Hello <your name>, right now the time is <current time>
+
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh (install rust)
+cargo new hello_time (create new rust project)
+cd hello_time 
+Open the src/main.rs file in your favorite text editor and replace its contents with the following Rust code :
+
+use chrono::prelude::*;
+use chrono_tz::Tz;
+
+fn main() {
+    let name = "YourName";  // Replace with your actual name
+    let timezone: Tz = "America/New_York".parse().unwrap();  // Replace with your timezone
+    let current_time = Utc::now().with_timezone(&timezone);
+    println!("Hello {}, right now the time is {}", name, current_time.format("%Y-%m-%d %H:%M:%S"));
+}
+
+Open the Cargo.toml file and add the chrono and chrono-tz dependencies:
+
+[dependencies]
+chrono = "0.4"
+chrono-tz = "0.6"
+
+cargo run
